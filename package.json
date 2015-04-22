@@ -5,7 +5,7 @@
   },
   "name": "osd-ng-img-crop",
   "prettyName": "osdNgImgCrop",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Image crop directive for AngularJS",
   "license": "MIT",
   "homepage": "https://github.com/Osedea/ngImgCrop",

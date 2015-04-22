@@ -1,11 +1,11 @@
 /*!
- * osdNgImgCrop v0.4.2
+ * osdNgImgCrop v0.5.0
  * https://github.com/Osedea/ngImgCrop
  *
  * Copyright (c) 2015 Alex Kaul
  * License: MIT
  *
- * Generated at Wednesday, April 22nd, 2015, 5:54:01 PM
+ * Generated at Wednesday, April 22nd, 2015, 6:53:10 PM
  */
 (function() {
 'use strict';
@@ -1725,6 +1725,18 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       drawScene();
     };
 
+    this.setPosition = function(position) {
+      if(position.withoutSavingPosition) {
+        position.size = Math.min(200, ctx.canvas.width / 2, ctx.canvas.height / 2);
+        position.x = ctx.canvas.width / 2;
+        position.y = ctx.canvas.height / 2;
+      }
+
+      theArea.setX(position.x);
+      theArea.setY(position.y);
+      theArea.setSize(position.size);
+    }
+
     /* Life Cycle begins */
 
     // Init Context var
@@ -1900,6 +1912,11 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeo
         },
         true
       );
+
+      scope.$on('osdNgImgCropPosition', function(ev, data) {
+        cropHost.setPosition(data);
+        updateResultImage(scope);
+      });
 
       // Destroy CropHost Instance when the directive is destroying
       scope.$on('$destroy', function(){
