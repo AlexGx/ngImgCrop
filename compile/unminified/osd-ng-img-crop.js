@@ -1,11 +1,11 @@
 /*!
- * osdNgImgCrop v0.4.0
+ * osdNgImgCrop v0.4.1
  * https://github.com/Osedea/ngImgCrop
  *
  * Copyright (c) 2015 Alex Kaul
  * License: MIT
  *
- * Generated at Wednesday, April 22nd, 2015, 4:42:33 PM
+ * Generated at Wednesday, April 22nd, 2015, 4:50:43 PM
  */
 (function() {
 'use strict';
