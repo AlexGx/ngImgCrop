@@ -117,9 +117,10 @@ The following code enables to select an image using a file input and crop it. Th
    [result-image-format="{string}"]
    [result-image-quality="{number}"]
    [on-change="{expression}"]
-   [on-load-begin="{expression"]
-   [on-load-done="{expression"]
-   [on-load-error="{expression"]
+   [on-load-begin="{expression}"]
+   [on-load-done="{expression}"]
+   [on-load-error="{expression}"]
+   [position="{string}"]
 ></img-crop>
 ```
 
@@ -171,6 +172,30 @@ Assignable angular expression to data-bind to. NgImgCrop puts a data uri of a cr
 
 *Optional*. Expression to evaluate when the source image didn't load.
 
+### position
+
+*Optional*. Expression to data-bind to. Contains the position and size of the crop area.
+
+Example:
+
+```js
+{
+  withoutSavingPosition: true,
+  size: 120,
+  x: 0,
+  y: 0
+}
+```
+
+You can initialize it in a controller and it will place the crop area in the directive after loading the image:
+
+```js
+{
+  size: 120,
+  x: 123,
+  y: 456
+}
+```
 
 ## License
 
