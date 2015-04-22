@@ -1,16 +1,18 @@
 # ngImgCrop
 
+This is a fork of [alexk111 repo](https://github.com/alexk111/ngImgCrop) that's not maintained anymore.
+
 Simple Image Crop directive for AngularJS. Enables to crop a circle or a square out of an image.
 
 ## Screenshots
 
-![Circle Crop](https://raw.github.com/alexk111/ngImgCrop/master/screenshots/circle_1.jpg "Circle Crop")
+![Circle Crop](https://raw.github.com/Osedea/ngImgCrop/master/screenshots/circle_1.jpg "Circle Crop")
 
-![Square Crop](https://raw.github.com/alexk111/ngImgCrop/master/screenshots/square_1.jpg "Square Crop")
+![Square Crop](https://raw.github.com/Osedea/ngImgCrop/master/screenshots/square_1.jpg "Square Crop")
 
 ## Live demo
 
-[Live demo on JSFiddle](http://jsfiddle.net/alexk111/rw6q9/)
+[Live demo on JSFiddle](http://jsfiddle.net/Osedea/rw6q9/)
 
 ## Requirements
 
@@ -22,16 +24,16 @@ Simple Image Crop directive for AngularJS. Enables to crop a circle or a square 
 ### Download
 
 You have two options to get the files:
-- [Download ngImgCrop](https://github.com/alexk111/ngImgCrop/archive/master.zip) files from GitHub.
-- Use Bower to download the files. Just run `bower install ngImgCrop`.
+- [Download ngImgCrop](https://github.com/Osedea/ngImgCrop/archive/master.zip) files from GitHub.
+- Use Bower to download the files. Just run `bower install osd-ng-img-crop`.
 
 ### Add files
 
-Add the scripts to your application. Make sure the `ng-img-crop.js` file is inserted **after** the `angular.js` library:
+Add the scripts to your application. Make sure the `osd-ng-img-crop.js` file is inserted **after** the `angular.js` library:
 
 ```html
 <script src="angular.js"></script>
-<script src="ng-img-crop.js"></script>
+<script src="osd-ng-img-crop.js"></script>
 <link rel="stylesheet" type="text/css" href="ng-img-crop.css">
 ```
 
@@ -63,7 +65,7 @@ The following code enables to select an image using a file input and crop it. Th
 <html>
 <head>
   <script src="angular.js"></script>
-  <script src="ng-img-crop.js"></script>
+  <script src="osd-ng-img-crop.js"></script>
   <link rel="stylesheet" type="text/css" href="ng-img-crop.css">
   <style>
     .cropArea {
@@ -199,5 +201,5 @@ You can initialize it in a controller and it will place the crop area in the dir
 
 ## License
 
-See the [LICENSE](https://github.com/alexk111/ngImgCrop/blob/master/LICENSE) file.
+See the [LICENSE](https://github.com/Osedea/ngImgCrop/blob/master/LICENSE) file.
 
