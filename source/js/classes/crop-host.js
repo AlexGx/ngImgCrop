@@ -349,6 +349,18 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
       drawScene();
     };
 
+    this.setPosition = function(position) {
+      if(position.withoutSavingPosition) {
+        position.size = Math.min(200, ctx.canvas.width / 2, ctx.canvas.height / 2);
+        position.x = ctx.canvas.width / 2;
+        position.y = ctx.canvas.height / 2;
+      }
+
+      theArea.setX(position.x);
+      theArea.setY(position.y);
+      theArea.setSize(position.size);
+    }
+
     /* Life Cycle begins */
 
     // Init Context var

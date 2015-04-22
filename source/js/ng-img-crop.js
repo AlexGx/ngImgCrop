@@ -118,6 +118,11 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function($timeo
         true
       );
 
+      scope.$on('osdNgImgCropPosition', function(ev, data) {
+        cropHost.setPosition(data);
+        updateResultImage(scope);
+      });
+
       // Destroy CropHost Instance when the directive is destroying
       scope.$on('$destroy', function(){
           cropHost.destroy();
