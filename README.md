@@ -199,6 +199,16 @@ You can initialize it in a controller and it will place the crop area in the dir
 }
 ```
 
+You can update the position by emitting an event:
+
+```js
+$scope.$broadcast('osdNgImgCropPosition', {
+    size: 200,
+    x: 50,
+    y: 50
+});
+```
+
 ## License
 
 See the [LICENSE](https://github.com/Osedea/ngImgCrop/blob/master/LICENSE) file.
