@@ -1,11 +1,11 @@
 /*!
- * osdNgImgCrop v0.5.0
+ * osdNgImgCrop v0.5.1
  * https://github.com/Osedea/ngImgCrop
  *
  * Copyright (c) 2015 Alex Kaul
  * License: MIT
  *
- * Generated at Wednesday, April 22nd, 2015, 6:53:10 PM
+ * Generated at Thursday, April 23rd, 2015, 11:15:31 AM
  */
 (function() {
 'use strict';
@@ -83,10 +83,10 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
     this._areaIsHover = false;
 
     if (this._areaIsDragging) {
+      position.x = this.getX();
+      position.y = this.getY();
       this._x = mouseCurX - this._posDragStartX;
       this._y = mouseCurY - this._posDragStartY;
-      position.x = this._x;
-      position.y = this._y;
       this._areaIsHover = true;
       cursor='move';
       res=true;
@@ -258,10 +258,10 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
     this._areaIsHover = false;
 
     if (this._areaIsDragging) {
+      position.x = this.getX();
+      position.y = this.getY();
       this._x = mouseCurX - this._posDragStartX;
       this._y = mouseCurY - this._posDragStartY;
-      position.x = this._x;
-      position.y = this._y;
       this._areaIsHover = true;
       cursor='move';
       res=true;
