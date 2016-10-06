@@ -66,6 +66,7 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
   CropAreaCircle.prototype.processMouseMove=function(mouseCurX, mouseCurY, position) {
     var cursor='default';
     var res=false;
+    var needSavePosition = false;
 
     this._boxResizeIsHover = false;
     this._areaIsHover = false;
@@ -91,7 +92,9 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
         }
 
         this._size = Math.max(this._minSize, iFR);
-        position.size = this._size;
+
+        needSavePosition = true;
+
         this._boxResizeIsHover = true;
         res=true;
         this._events.trigger('area-resize');
@@ -107,6 +110,11 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
     }
 
     this._dontDragOutside();
+
+    if (needSavePosition) {
+        position.size = this._size;
+    }
+
     angular.element(this._ctx.canvas).css({'cursor': cursor});
 
     return res;
