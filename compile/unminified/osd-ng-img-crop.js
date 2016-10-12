@@ -2,10 +2,10 @@
  * osdNgImgCrop v0.5.1
  * https://github.com/Osedea/ngImgCrop
  *
- * Copyright (c) 2015 Alex Kaul
+ * Copyright (c) 2016 Alex Kaul
  * License: MIT
  *
- * Generated at Thursday, April 23rd, 2015, 11:15:31 AM
+ * Generated at Wednesday, October 12th, 2016, 5:33:02 PM
  */
 (function() {
 'use strict';
@@ -78,6 +78,7 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
   CropAreaCircle.prototype.processMouseMove=function(mouseCurX, mouseCurY, position) {
     var cursor='default';
     var res=false;
+    var needSavePosition = false;
 
     this._boxResizeIsHover = false;
     this._areaIsHover = false;
@@ -103,7 +104,9 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
         }
 
         this._size = Math.max(this._minSize, iFR);
-        position.size = this._size;
+
+        needSavePosition = true;
+
         this._boxResizeIsHover = true;
         res=true;
         this._events.trigger('area-resize');
@@ -119,6 +122,11 @@ crop.factory('cropAreaCircle', ['cropArea', function(CropArea) {
     }
 
     this._dontDragOutside();
+
+    if (needSavePosition) {
+        position.size = this._size;
+    }
+
     angular.element(this._ctx.canvas).css({'cursor': cursor});
 
     return res;
@@ -253,6 +261,7 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
   CropAreaSquare.prototype.processMouseMove=function(mouseCurX, mouseCurY, position) {
     var cursor='default';
     var res=false;
+    var needSavePosition = false;
 
     this._resizeCtrlIsHover = -1;
     this._areaIsHover = false;
@@ -300,14 +309,9 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
       }
       var wasSize=this._size;
       this._size = Math.max(this._minSize, iFR);
-      var posModifier=(this._size-wasSize)/2;
-      position.size = this._size;
-      if(position.size <= this._ctx.canvas.height){
-        this._x+=posModifier*xMulti;
-        this._y+=posModifier*yMulti;
-        position.x = this._x;
-        position.y = this._y;
-      }
+      
+      needSavePosition = true;
+
       this._resizeCtrlIsHover = this._resizeCtrlIsDragging;
       res=true;
       this._events.trigger('area-resize');
@@ -339,6 +343,18 @@ crop.factory('cropAreaSquare', ['cropArea', function(CropArea) {
     }
 
     this._dontDragOutside();
+
+    if (needSavePosition) {
+      var posModifier=(this._size-wasSize)/2;
+      position.size = this._size;
+      if(position.size <= this._ctx.canvas.height){
+        this._x+=posModifier*xMulti;
+        this._y+=posModifier*yMulti;
+        position.x = this._x;
+        position.y = this._y;
+      }
+    }
+
     angular.element(this._ctx.canvas).css({'cursor': cursor});
 
     return res;
